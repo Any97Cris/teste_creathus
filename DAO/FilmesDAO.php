@@ -1,5 +1,7 @@
 <?php
 
+require_once "Model/Filmes.php";
+
 class FilmesDAO {
     private $pdo;
 
@@ -8,7 +10,7 @@ class FilmesDAO {
     }
 
     public function add(Filmes $f){
-        
+
     }
 }
 
