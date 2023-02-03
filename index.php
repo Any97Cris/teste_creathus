@@ -30,7 +30,7 @@ require_once "database.php";
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="adicionar.php">
+          <a class="nav-link active" href="cadastrar.php">
             <img src="assets/img/add-contact.png" class="iconeMenu2" alt="icone_adicionar">
           </a>
         </li>        
