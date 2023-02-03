@@ -1,4 +1,8 @@
-<?php?>
+<?php
+
+require_once "database.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
