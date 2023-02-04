@@ -36,10 +36,11 @@ class FilmesDAO {
                 $data->setAutor($item['filme_autor']);
                 $data->setDescricao($item['filme_descricao']);
                 $data->setAno($item['filme_ano']);
+                $data->setPath($item['filme_path']);
 
-            }
-            
-            $array = $data;
+                $array[] = $data;
+
+            }            
         }
 
         return $array;
