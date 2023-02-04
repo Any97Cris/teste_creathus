@@ -1,6 +1,12 @@
 <?php
 
 require_once "database.php";
+require_once "DAO/FilmesDAO.php";
+require_once "Model/Filmes.php";
+
+$filmesdao = new FilmesDAO($pdo);
+
+$listarfilmes = $filmesdao->findAll();
 
 ?>
 <!DOCTYPE html>
@@ -46,15 +52,17 @@ require_once "database.php";
     <h3 class="my-3">Últimos filmes adicionados</h1>
     <h6>Próximos Filmes</h6>
 
-    <div class="container text-center">
+    <div class="container text-center">    
         <div class="row">
+        
             <div class="col">col</div>
             <div class="col">col</div>
             <div class="col">col</div>
             <div class="col">col</div>
             <div class="col">col</div>
             <div class="col">col</div>
-        </div>    
+       
+        </div>      
     </div>
 
 </div>
