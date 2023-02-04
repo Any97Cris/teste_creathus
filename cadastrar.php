@@ -30,7 +30,11 @@
 </nav>
 <div class="container">
     <h3 class="my-3">Cadastrar Filme</h1>
-    <form method="POST" action="cadastrar_action.php">
+    <form method="POST" action="cadastrar_action.php" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Arquivo</label>
+            <input type="file" class="form-control" name="filme_path">
+        </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Titulo</label>
             <input type="text" class="form-control" name="filme_titulo" placeholder="Digite titulo do filme">
