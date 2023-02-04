@@ -10,11 +10,12 @@ class FilmesDAO {
     }
 
     public function add(Filmes $f){
-        $sql = $this->pdo->prepare("INSERT INTO filmes(filme_titulo,filme_autor,filme_descricao,filme_ano) VALUES(:titulo,:autor,:descricao,:ano)");
+        $sql = $this->pdo->prepare("INSERT INTO filmes(filme_titulo,filme_autor,filme_descricao,filme_ano,filme_path) VALUES(:titulo,:autor,:descricao,:ano, :caminhoimg)");
         $sql->bindValue(':titulo', $f->getTitulo());
         $sql->bindValue(':autor', $f->getAutor());
         $sql->bindValue(':descricao', $f->getDescricao());
         $sql->bindValue(':ano', $f->getAno());
+        $sql->bindValue(':caminhoimg', $f->getPath());
         $sql->execute();
 
         $f->setId($this->pdo->lastInsertId());

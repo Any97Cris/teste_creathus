@@ -6,6 +6,7 @@ class Filmes {
     private $autor;
     private $descricao;
     private $ano;
+    private $caminhoimg;
 
     public function getId(){
         return $this->id;
@@ -40,6 +41,13 @@ class Filmes {
     }
     public function setAno($ano){
         $this->ano = $ano;
+    }
+
+    public function getPath(){
+        return $this->caminhoimg;
+    }
+    public function setPath($caminhoimg){
+        $this->caminhoimg = $caminhoimg;
     }
 
 }
