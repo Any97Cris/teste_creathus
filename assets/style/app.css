@@ -31,3 +31,22 @@ body {
     margin: .5%;
 }
 
+/*===========//============//Tela Mais Informações//=============//*/
+.container_filme {
+    display: flex;
+}
+
+.margemDireito{
+    margin-right: 10px;
+}
+
+.float-bottom {
+    position: absolute; 
+    bottom: 0;
+}
+
+.descricaoFilme{
+    width: 500px;
+    text-align:justify;
+}
+

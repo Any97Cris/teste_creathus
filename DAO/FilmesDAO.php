@@ -22,10 +22,11 @@ class FilmesDAO {
         return $f;
     }
 
-    public function findAll(){
+    public function findAll($busca=""){
         $array = [];
-        $sql = $this->pdo->query("SELECT * FROM filmes");
-
+        $sql = $this->pdo->prepare("SELECT * FROM filmes WHERE filme_titulo LIKE :pesquisa");
+        $sql->bindValue(":pesquisa","%".$busca."%");
+        $sql->execute();
         if($sql->rowCount() > 0){
             $dados = $sql->fetchAll();
 
@@ -44,6 +45,28 @@ class FilmesDAO {
         }
 
         return $array;
+    }
+
+    public function findById($id){
+        $sql = $this->pdo->prepare("SELECT * FROM filmes WHERE filme_id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $data = $sql->fetch();
+
+            $u = new Filmes();
+            $u->setId($data['filme_id']);
+            $u->setTitulo($data['filme_titulo']);
+            $u->setAutor($data['filme_autor']);
+            $u->setDescricao($data['filme_descricao']);
+            $u->setAno($data['filme_ano']);
+            $u->setPath($data['filme_path']);
+
+            return $u;
+        } else {
+            return false;
+        }
     }
 }
 

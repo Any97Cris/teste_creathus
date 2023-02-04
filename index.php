@@ -6,7 +6,10 @@ require_once "Model/Filmes.php";
 
 $filmesdao = new FilmesDAO($pdo);
 
-$listarfilmes = $filmesdao->findAll();
+$campoPesquisa = filter_input(INPUT_GET, 'pesquisa');
+
+$listarfilmes = $filmesdao->findAll($campoPesquisa);
+
 
 ?>
 <!DOCTYPE html>
@@ -41,8 +44,8 @@ $listarfilmes = $filmesdao->findAll();
           </a>
         </li>        
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+      <form class="d-flex" role="search" method="GET">
+        <input class="form-control me-2" name="pesquisa" value="<?= $campoPesquisa ?>" type="search" placeholder="Pesquisar..." aria-label="Search">
         <button class="btn btn-light" type="submit">Pesquisar</button>
       </form>
     </div>
@@ -51,14 +54,14 @@ $listarfilmes = $filmesdao->findAll();
 <div class="container">
     <h3 class="my-3">Últimos filmes adicionados</h1>
     <h6>Próximos Filmes</h6>
-    <div class="cards-container">
+    <div class="row cards-container">
         <?php foreach($listarfilmes as $itens){ ?>
           <div class="card col-md-3 bg-dark my-3" style="width: 10rem;">
             <img src="assets/img_filmes/<?= $itens->getPath(); ?>" class="card-img-top" alt="filme">
             <div class="card-body">
               <p class="card-title fw-bold"><?= $itens->getTitulo(); ?></p>
               <p class="card-text"><?= $itens->getAno(); ?></p>
-              <a href="informacaoFilme.php" class="btn btn-secondary btn-sm">Mais informações</a>
+              <a href="informacaoFilme.php?id=<?= $itens->getId(); ?>" class="btn btn-secondary btn-sm">Mais informações</a>
             </div>
           </div>
         <?php } ?>
