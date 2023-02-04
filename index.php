@@ -51,19 +51,19 @@ $listarfilmes = $filmesdao->findAll();
 <div class="container">
     <h3 class="my-3">Últimos filmes adicionados</h1>
     <h6>Próximos Filmes</h6>
-
-    <div class="container text-center">    
-        <div class="row">
-        
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-       
-        </div>      
+    <div class="cards-container">
+        <?php foreach($listarfilmes as $itens){ ?>
+          <div class="card col-md-3 bg-dark my-3" style="width: 10rem;">
+            <img src="assets/img_filmes/<?= $itens->getPath(); ?>" class="card-img-top" alt="filme">
+            <div class="card-body">
+              <p class="card-title fw-bold"><?= $itens->getTitulo(); ?></p>
+              <p class="card-text"><?= $itens->getAno(); ?></p>
+              <a href="informacaoFilme.php" class="btn btn-secondary btn-sm">Mais informações</a>
+            </div>
+          </div>
+        <?php } ?>
     </div>
+    
 
 </div>
     
